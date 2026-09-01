@@ -89,44 +89,41 @@
     </header>    
   
     <main>
-        <section>
-            <h2>Indicadores</h2>
-            <article>
-                <h3>Equipamentos Ativos</h3>
-                <p>25</p>
-            </article>
-            <article>
-                <h3>Total Equipamentos</h3>
-                
-                <p>300</p>
-            </article>
-        </section>
-        <section>
-            <h2>Equipamentos Recentes</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Equipamento</th>
-                        <th>Local</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>    
-                        <td>Empacotadora</td>
-                        <td>Setor Peru A1</td>
-                        <td>Ativo</td>
-                    </tr>
-                    <tr>    
-                        <td>Empacotadora Bandeja</td>
-                        <td>Setor Peru A1</td>
-                        <td>Ativo</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        
+        
 
     </main>
+
+    <div class="modal fade">
+        id="equipmentModal"
+        tabindex="-1"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h5 class="modal-tittle">
+                    Novo equipamento    
+                </h5>
+                <button type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"></button>
+            </div>        
+        </div> 
+    </div>
+    </div>
+    <div class="modal-body">
+        <input
+        type="text"
+        id="equipamentName"
+        class="form-control"
+        placeholder="Nome do eqipamento">
+        <button type="button"
+        id="btnSaveEquipment"
+        class="btn btn-sucess"
+        >Salvar</button>
+    </button>
+    </div>
+
+
     <footer>    
         <p>2026 - Sistema de Controle e Manutenção de Equipamentos ADS2026-2</p>
     </footer>
