@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipamentos - Sistema de Manutenção</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/forms.css" rel="stylesheet">
+    <link href="../../css/equipments.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-md-3 col-lg-2 bg-dark min-vh-100">
+                <nav class="nav flex-column">
+                    <h4 class="mb-4 text-white">Menu</h4>
+                    <a class="nav-link text-white" href="../dashboard/dashboard.html">Dashboard</a>
+                    <a class="nav-link text-white active" href="../equipments/equipments.html">Equipamentos</a>
+                    <a class="nav-link text-white" href="../categories/categories.html">Categorias</a>
+                    <a class="nav-link text-white" href="../technicians/technicians.html">Técnicos</a>
+                </nav>
+            </aside>
+            <main class="col-md-9 col-lg-10 p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Equipamentos</h2>
+                    <button class="btn btn-primary" id="btnNewEquipment">Novo equipamento</button>
+                </div>
+
+                <form class="row g-3 mb-4">
+                    <div class="col-md-8">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Pesquisar equipamento">
+                    </div>
+                </form>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Equipamento</th>
+                            <th>Local</th>
+                            <th>Status</th>
+                            <th>Patrimônio</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="equipmentsTable">
+                        <!-- linhas geradas via JS -->
+                    </tbody>
+                </table>
+            </main>
+        </div>
+    </div>
+
+    <div class="modal fade" id="equipmentModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Novo equipamento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="equipmentName" class="form-control" placeholder="Nome do equipamento">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnSaveEquipment" class="btn btn-success">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-3">
+        <p>2026 - Sistema de Controle e Manutenção de Equipamentos ADS2026-2</p>
+    </footer>
+
+    <script src="../../js/equipments.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

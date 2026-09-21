@@ -52,24 +52,24 @@ const modal = new bootstrap.Modal(modalElement);
 console.log("activeTotal: "+ activeTotal.textContent);
 //activeTotal.textContent = 50;
 
-//function dashboardRefresh() {
+// function dashboardRefresh() {
     
-    //const actives = equipments.filter(
-        //equipment => equipment.status === "active"
-    //).length;
+//     const actives = equipments.filter(
+//         equipment => equipment.status === "active"
+//     ).length;
 
-    //const inMaintenance = equipments.filter(
-        //equipment => equipment.status === "maintenance"
-    //).length;
+//     const inMaintenance = equipments.filter(
+//         equipment => equipment.status === "maintenance"
+//     ).length;
 
-    //activeTotal.textContent = actives;
-    //maintenanceEquipmentsTotal.textContent = inMaintenance;
+//     activeTotal.textContent = actives;
+//     maintenanceEquipmentsTotal.textContent = inMaintenance;
 
-  //  console.log("Dashboard atualizado");
+//     console.log("Dashboard atualizado");
 
-//}
+// }
 
-dashboardRefresh();
+// dashboardRefresh();
 
 function equipmentsTableRender(list) {
     
@@ -128,7 +128,7 @@ btnSave.addEventListener("click", function(){
 
     equipments.push(newEquipment);
     equipmentsTableRender(equipments);
-    dashboardRefresh();
+    // dashboardRefresh();
 
 
     modal.hide();
@@ -147,35 +147,36 @@ function equipmentDelete(id){
 
     equipments.splice(index,1);
     equipmentsTableRender(equipments);
-    dashboardRefresh();
+    // dashboardRefresh();
     
     console.log("Equipamento removido",id);
 
 }
-async function dashboardLoad(){
+
+async function dashboardLoad() {
+
     try{
         const response = await fetch("http://localhost:3000/dashboard");
-        
+
         if(!response.ok){
-            throw new Error("não foi possível carregar o dashboard");
+            throw new Error("Não foi possível carregar o dashboard");
         }
 
         const data = await response.json();
-        console.log("Dados recebidos: ",data);
-          
-    const actives = data.activeEquips;
-    
-    const inMaintenance = data.inMaintenance;
-    const preventiveTotal = data.preventiveMaintenance;
+        console.log("Dados recebidos: ",data); 
 
-    activeTotal.textContent = actives;
-    maintenanceEquipmentsTotal.textContent = inMaintenance;
-    preventiveTotal.textContent = preventiveEquips;
+        const actives = data.activeEquips;
+        const inMaintenance = data.inMaintenance;
+        const preventiveEquips = data.preventiveMaintenance;
+            
+        activeTotal.textContent = actives;
+        maintenanceEquipmentsTotal.textContent = inMaintenance;
+        preventiveTotal.textContent = preventiveEquips;
 
 
-    }catch(error){
-        console.error("Erro ao carregar o dasboard:", error);
+    } catch(error){
+        console.error("Erro ao carregar o dashboard: ", error );
+    };
 
-    }
 }
 dashboardLoad();
