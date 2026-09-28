@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Locais - Sistema de Controle de Manutenção</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/dashboard.css">
+  <link rel="stylesheet" href="../../css/forms.css">
+</head>
+<body>
+  <div class="d-flex min-vh-100">
+
+    <aside class="bg-dark text-white p-3 flex-shrink-0" style="width: 250px;">
+      <h5 class="mb-4">Manutenção</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-1"><a href="../dashboard/dashboard.html" class="nav-link text-white">Dashboard</a></li>
+        <li class="nav-item mb-1"><a href="../equipments/equipments.html" class="nav-link text-white">Equipamentos</a></li>
+        <li class="nav-item mb-1"><a href="../categories/categories.html" class="nav-link text-white">Categorias</a></li>
+        <li class="nav-item mb-1"><a href="../locations/locations.html" class="nav-link text-white active bg-primary">Locais</a></li>
+        <li class="nav-item mb-1"><a href="../technicians/technicians.html" class="nav-link text-white">Técnicos</a></li>
+        <li class="nav-item mb-1"><a href="../work-orders/work-orders.html" class="nav-link text-white">Ordens de Serviço</a></li>
+        <li class="nav-item mb-1"><a href="../history/history.html" class="nav-link text-white">Histórico</a></li>
+        <li class="nav-item mb-1"><a href="../users/users.html" class="nav-link text-white">Usuários</a></li>
+      </ul>
+    </aside>
+
+    <main class="flex-grow-1 bg-light p-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="mb-0">Locais</h4>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#locationModal">Novo local</button>
+      </div>
+      <div class="card shadow-sm">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+              <tr><th>Nome</th><th>CEP</th><th>Logradouro</th><th>Cidade/UF</th><th class="text-end">Ações</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>Almoxarifado Central</td><td>89801-000</td><td>Rua Exemplo, 100</td><td>Chapecó/SC</td><td class="text-end"><button type="button" class="btn btn-sm btn-outline-primary me-1">Editar</button><button type="button" class="btn btn-sm btn-outline-danger">Excluir</button></td></tr>
+            <tr><td>Sala de Servidores</td><td>89802-000</td><td>Av. Exemplo, 250</td><td>Chapecó/SC</td><td class="text-end"><button type="button" class="btn btn-sm btn-outline-primary me-1">Editar</button><button type="button" class="btn btn-sm btn-outline-danger">Excluir</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <form>
+          <div class="modal-header">
+            <h5 class="modal-title" id="locationModalLabel">Novo local</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="locName" class="form-label">Nome do local</label>
+                <input type="text" class="form-control" id="locName" name="locName" required>
+              </div>
+              <div class="col-md-3">
+                <label for="locCep" class="form-label">CEP</label>
+                <input type="text" class="form-control" id="locCep" name="locCep" maxlength="9" placeholder="00000-000" required>
+              </div>
+              <div class="col-md-3">
+                <label for="locNumber" class="form-label">Número</label>
+                <input type="text" class="form-control" id="locNumber" name="locNumber" >
+              </div>
+              <div class="col-md-6">
+                <label for="locStreet" class="form-label">Logradouro</label>
+                <input type="text" class="form-control" id="locStreet" name="locStreet" required>
+              </div>
+              <div class="col-md-6">
+                <label for="locDistrict" class="form-label">Bairro</label>
+                <input type="text" class="form-control" id="locDistrict" name="locDistrict" >
+              </div>
+              <div class="col-md-6">
+                <label for="locCity" class="form-label">Cidade</label>
+                <input type="text" class="form-control" id="locCity" name="locCity" required>
+              </div>
+              <div class="col-md-3">
+                <label for="locState" class="form-label">UF</label>
+                <select class="form-select" id="locState" name="locState" required><option value="">UF</option><option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option><option value="AM">AM</option><option value="BA">BA</option><option value="CE">CE</option><option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option><option value="MA">MA</option><option value="MT">MT</option><option value="MS">MS</option><option value="MG">MG</option><option value="PA">PA</option><option value="PB">PB</option><option value="PR">PR</option><option value="PE">PE</option><option value="PI">PI</option><option value="RJ">RJ</option><option value="RN">RN</option><option value="RS">RS</option><option value="RO">RO</option><option value="RR">RR</option><option value="SC">SC</option><option value="SP">SP</option><option value="SE">SE</option><option value="TO">TO</option></select>
+              </div>
+              <div class="col-md-3">
+                <label for="locComplement" class="form-label">Complemento</label>
+                <input type="text" class="form-control" id="locComplement" name="locComplement" >
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-success">Salvar local</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+w
